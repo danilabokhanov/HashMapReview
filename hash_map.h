@@ -187,16 +187,14 @@ public:
         }
         const_iterator(const std::pair<KeyType, ValueType>* ptr_pair, uint8_t* ptr_used,
                        uint8_t* end_used)
-            : ptr_pair_(reinterpret_cast<const std::pair<const KeyType, ValueType>*>(ptr_pair)),
-              ptr_used_(ptr_used),
-              end_used_(end_used) {
+            : ptr_pair_(ptr_pair), ptr_used_(ptr_used), end_used_(end_used) {
         }
 
-        const std::pair<const KeyType, ValueType>& operator*() {
+        const std::pair<KeyType, ValueType>& operator*() {
             return *ptr_pair_;
         }
 
-        const std::pair<const KeyType, ValueType>* operator->() {
+        const std::pair<KeyType, ValueType>* operator->() {
             return ptr_pair_;
         }
 
@@ -225,7 +223,7 @@ public:
         }
 
     private:
-        const std::pair<const KeyType, ValueType>* ptr_pair_ = nullptr;
+        const std::pair<KeyType, ValueType>* ptr_pair_ = nullptr;
         uint8_t *ptr_used_ = nullptr, *end_used_ = nullptr;
     };
 
